@@ -87,13 +87,14 @@ d3.selectAll('.Hendra').on('mouseover',function(){
 //Mouseout
 
 d3.selectAll('.Ebola').on('mouseout',function(){
-  d3.selectAll('.Ebola').classed('highlight',false);
-  d3.select('#reserv_murci').classed('Ebola',false);
-  var c = 'Democratic Republic of the Congo, Guinea, Sierra Leon, Liberia, Uganda, South Sudan, Gabon';
-  c = c.split(",").map(function(d){return d.trim();});
-  c.forEach(function(e){
-    d3.select('path[data-admin="'+e+'"]').style("fill","none");
-  });
+    d3.selectAll('.Ebola').classed('highlight',false);
+    d3.select('#reserv_murci').classed('Ebola',false);
+    var c = 'Democratic Republic of the Congo, Guinea, Sierra Leon, Liberia, Uganda, South Sudan, Gabon';
+    c = c.split(",").map(function(d){return d.trim();});
+    c.forEach(function(e){
+      d3.select('path[data-admin="'+e+'"]').style("fill","none");
+    });
+
 });
 d3.selectAll('.Marburgo').on('mouseout',function(){
   d3.selectAll('.Marburgo').classed('highlight',false);
@@ -183,3 +184,7 @@ d3.xml("world.svg",function(error, documentFragment) {
     var main_chart_svg = d3.select('g.map');
     main_chart_svg.node().appendChild(svgNode);
 });
+
+// function highlightClicked(malaltia){
+//
+// }
