@@ -34,6 +34,10 @@ svg .regular{
 	font-weight: normal;
 }
 
+.uppercase{
+	text-transform:uppercase;
+}
+
 .bar.highlight{
 	stroke:#000;
 }
