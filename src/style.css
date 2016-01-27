@@ -77,3 +77,13 @@ reserv_vaca
 reserv_murci
 reserv_camell
 reserv_ovella*/
+
+.map{
+	stroke-linejoin: round;
+	stroke: #000;
+	fill: none;
+}
+/*.map path{
+	fill:green;
+	stroke:red;
+}*/
