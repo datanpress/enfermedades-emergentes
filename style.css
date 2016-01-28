@@ -84,8 +84,8 @@ reserv_ovella*/
 
 .map{
 	stroke-linejoin: round;
-	stroke: #000;
-	fill: none;
+	stroke: #555;
+	fill: #DADADA;
 }
 .crisp{
 	shape-rendering: crispEdges;
