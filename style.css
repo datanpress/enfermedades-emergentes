@@ -57,6 +57,9 @@ svg .regular{
 .label.highlight.Hendra{
 	fill:#2FAC66
 }
+.bar.highlight.Hendra{
+	stroke: #2FAC66;
+}
 
 #murcielago.Ebola,
 #murcielago.Marburgo,
