@@ -87,6 +87,9 @@ reserv_ovella*/
 	stroke: #000;
 	fill: none;
 }
+.crisp{
+	shape-rendering: crispEdges;
+}
 /*.map path{
 	fill:green;
 	stroke:red;
