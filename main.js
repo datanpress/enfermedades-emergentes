@@ -73,7 +73,11 @@ function highlight(e){
 
       //Selecciono el mapa
       var c = d[4];
-      var color = d3.select(self).style("fill");
+      if (d[1]==0){
+        var color = '#2FAC66';
+      }else{
+        var color = d3.select(self).style("fill");  
+      }
       c = c.split(",").map(function(d){return d.trim();});
       d3.select('.tipo'+d[6]).style('fill',color);
       c.forEach(function(e){
