@@ -9,6 +9,7 @@ d3.selectAll('.Ebola').on('mouseover',function(){
   });
 });
 d3.selectAll('.Marburgo').on('mouseover',function(){
+  console.log('over');
   d3.selectAll('.Marburgo').classed('highlight',true);
   d3.select('#reserv_murci').classed('Marburgo',true);
   var c = 'Angola, Democratic Republic of the Congo, Uganda, Kenya, South Africa';
@@ -97,6 +98,7 @@ d3.selectAll('.Ebola').on('mouseout',function(){
 
 });
 d3.selectAll('.Marburgo').on('mouseout',function(){
+  console.log('over');
   d3.selectAll('.Marburgo').classed('highlight',false);
   d3.select('#reserv_murci').classed('Marburgo',false);
   var c = 'Angola, Democratic Republic of the Congo, Uganda, Kenya, South Africa';

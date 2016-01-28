@@ -90,6 +90,9 @@ reserv_ovella*/
 .crisp{
 	shape-rendering: crispEdges;
 }
+.virus{
+	cursor: default;
+}
 /*.map path{
 	fill:green;
 	stroke:red;
