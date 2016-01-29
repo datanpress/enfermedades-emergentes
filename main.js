@@ -3,7 +3,7 @@ var data = [
   ["Marburgo",70,'filoviridae','murcielago','Angola, Democratic Republic of the Congo, Uganda, Kenya, South Africa','El virus de Marburgo, un gran desconocido de la misma familia que el Ébola', 'FH'],
   ["Lassa", 10,'arenaviridae','rata','Guinea , Sierra Leon, Liberia, Mali, Ivory Coast, Ghana, Togo, Benin, Nigeria, Burkina Faso','¿#Sabíasque 1 de cada 5 infecciones de la fiebre del Lassa puede resultar en una enfermedad mortal?', 'FH'],
   ["Congo-Crimea", 50,'bunyaviridae','vaca','Mauritania, Mali, Senegal, Guinea, Burkina Faso, Benin, Nigeria, Central African Republic, Democratic Republic of the Congo, South Sudan,Sudan, Egypt, Uganda, Tanzania, Zimbabwe, Namibia, South Africa, Madagascar, Ethiopia, Croatia, Slovenia, Serbia, Bosnia, Albania, Bulgaria, Macedonia, Turkey, Ukraine,Turkmenistan, Uzbekistan, Kazakhstan, Afghanistan, Pakistan, Georgia, Azerbaijan, Iraq, Iran, Saudi Arabia, United Arab Emirates, Oman','La Fiebre hemorrágica de Crimea Congo se transmite al ser humano a través de garrapatas y ganado', 'FH'],
-  ["Valle Rift", 10,'bunyaviridae','oveja','','El virus del Valle de Rift afecta sobre todo a animales, pero también puede infectar a humanos', 'FH'],
+  ["Valle Rift", 10,'bunyaviridae','oveja','Namibia, South Africa, Zimbabwe, Mozambique, Zambia, Tanzania, Madagascar, Kenya, South Sudan, Sudan, Egypt, Mauritania, Senegal, Gambia, Saudi Arabia, Yemen','El virus del Valle de Rift afecta sobre todo a animales, pero también puede infectar a humanos', 'FH'],
   ["MERS", 40,'Coronavirus','camello,murcielago','Iran, Jordan, Kuwait, Lebanon, Oman, Qatar, Saudi Arabia, United Arab Emirates, Yemen','El virus del MERS, una enfermedad emergente pero poco contagiosa fuera del contexto hospitalario', 'EAD'],
   ["SARS", 10,'Coronavirus','murcielago,gineta','Canada, China, Mongolia, Philippines, Vietnam','En 2003 un brote de SARS infectó 8.000 personas y causó 800 muertes. No hay más casos documentados', 'EAD'], //Falta Singapur
   ["Nipah", 60,'Paramyxoviridae','murcielago','Malaysia, Bangladesh','El virus Nipah es leve en cerdos pero grave en humanos. Se reporta periódicamente en Bangladesh', 'E'], //Falta Singapur
@@ -33,6 +33,7 @@ d3.select('svg').on('click',function(){
 });
 d3.selectAll('.tweetLink').on('click',function(){
   d3.event.stopPropagation();
+  ga('send', 'event', 'Click', 'tweetLink', d3.select(this).attr('xlink:href'));
 });
 d3.selectAll('.bar').on('click',function(){
   d3.event.stopPropagation();
@@ -42,6 +43,7 @@ d3.selectAll('.bar').on('click',function(){
     var m = d[0].replace(/ /g,'').replace(/-/g,'');
     if( d3.select(self).classed(m) ){
       clicked=m;
+      ga('send', 'event', 'Click', 'bar', m);
     }
   });
 });
@@ -67,6 +69,7 @@ function highlight(e){
       self= d3.select('.bar.'+m).node();
     }
     if( d3.select(self).classed(m) && (e===null || e===d[0].replace(/ /g,'').replace(/-/g,'') )){
+      ga('send', 'event', 'Hover', 'bar', m);
       d3.selectAll('.'+m).classed('highlight',true);
       var bitxos = d[3].split(',').map(function(e){return '#'+e;}).join(',');
       d3.selectAll(bitxos).classed(m,true);
@@ -87,7 +90,7 @@ function highlight(e){
       d3.select('.tweetLink').attr('xlink:href','https://twitter.com/share?url='+encodeURIComponent(url)+'&via='+encodeURIComponent(via)+'&text='+encodeURIComponent(d[5])+'');
       var percent = d[1]+'%';
       if (percent==='0%'){
-        percent = '?'
+        percent = '?';
       }
       d3.select('svg')
         .append('text')
@@ -97,6 +100,7 @@ function highlight(e){
         .attr('y', 124+23.1*i)
         .style('font-weight', 'bold')
         .style('fill', color)
+        .style('pointer-events', "none")
         .style('font-size', '8px');
       // console.log(wrap([d[5]], 200));
       // d3.select('svg').append(foreignObject)
@@ -110,7 +114,7 @@ function remove_highlight(){
   d3.selectAll('.bar').classed('highlight',false);
   d3.selectAll('.label').classed('highlight',false);
   d3.selectAll('.tipo').style('fill', null);
-  d3.selectAll('g.map path[data-admin]').style('fill','none');
+  d3.selectAll('g.map path[data-admin]').style('fill',null);
   data.forEach(function(d){
     var m = d[0].replace(/ /g,'').replace(/-/g,'');
     var bitxos = d[3].split(',').map(function(e){return '#'+e;}).join(',');
@@ -165,5 +169,6 @@ d3.xml("world.svg",function(error, documentFragment) {
                 .getElementsByTagName("svg")[0];
     //use plain Javascript to extract the node
     var main_chart_svg = d3.select('g.map');
+    main_chart_svg.node().appendChild(svgNode);
     main_chart_svg.node().appendChild(svgNode);
 });
