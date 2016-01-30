@@ -1,13 +1,13 @@
 var data = [
-  ["Ebola",70,'filoviridae','murcielago','Democratic Republic of the Congo, Guinea, Sierra Leon, Liberia, Uganda, South Sudan, Gabon','¿#Sabíasque el Ébola es una de las 9 enfermedades que la OMS considera emergentes?', 'FH'],
-  ["Marburgo",70,'filoviridae','murcielago','Angola, Democratic Republic of the Congo, Uganda, Kenya, South Africa','El virus de Marburgo, un gran desconocido de la misma familia que el Ébola', 'FH'],
-  ["Lassa", 10,'arenaviridae','rata','Guinea , Sierra Leon, Liberia, Mali, Ivory Coast, Ghana, Togo, Benin, Nigeria, Burkina Faso','¿#Sabíasque 1 de cada 5 infecciones de la fiebre del Lassa puede resultar en una enfermedad mortal?', 'FH'],
-  ["Congo-Crimea", 50,'bunyaviridae','vaca','Mauritania, Mali, Senegal, Guinea, Burkina Faso, Benin, Nigeria, Central African Republic, Democratic Republic of the Congo, South Sudan,Sudan, Egypt, Uganda, Tanzania, Zimbabwe, Namibia, South Africa, Madagascar, Ethiopia, Croatia, Slovenia, Serbia, Bosnia, Albania, Bulgaria, Macedonia, Turkey, Ukraine,Turkmenistan, Uzbekistan, Kazakhstan, Afghanistan, Pakistan, Georgia, Azerbaijan, Iraq, Iran, Saudi Arabia, United Arab Emirates, Oman','La Fiebre hemorrágica de Crimea Congo se transmite al ser humano a través de garrapatas y ganado', 'FH'],
-  ["Valle Rift", 10,'bunyaviridae','oveja','Namibia, South Africa, Zimbabwe, Mozambique, Zambia, Tanzania, Madagascar, Kenya, South Sudan, Sudan, Egypt, Mauritania, Senegal, Gambia, Saudi Arabia, Yemen','El virus del Valle de Rift afecta sobre todo a animales, pero también puede infectar a humanos', 'FH'],
-  ["MERS", 40,'Coronavirus','camello,murcielago','Iran, Jordan, Kuwait, Lebanon, Oman, Qatar, Saudi Arabia, United Arab Emirates, Yemen','El virus del MERS, una enfermedad emergente pero poco contagiosa fuera del contexto hospitalario', 'EAD'],
-  ["SARS", 10,'Coronavirus','murcielago,gineta','Canada, China, Mongolia, Philippines, Vietnam','En 2003 un brote de SARS infectó 8.000 personas y causó 800 muertes. No hay más casos documentados', 'EAD'], //Falta Singapur
-  ["Nipah", 60,'Paramyxoviridae','murcielago','Malaysia, Bangladesh','El virus Nipah es leve en cerdos pero grave en humanos. Se reporta periódicamente en Bangladesh', 'E'], //Falta Singapur
-  ["Hendra", 0,'Paramyxoviridae','murcielago','Australia','¿#Sabíasque el virus Hendra sólo se ha registrado una vez? Fue el 1994 en Australia', 'E'] //Falta Singapur
+  ["Ebola",70,'filoviridae','murcielago','Democratic Republic of the Congo, Guinea, Sierra Leon, Liberia, Uganda, South Sudan, Gabon','¿#Sabíasque el Ébola es una de las 9 enfermedades que la OMS considera emergentes?', 'FH', 'Spain, United States of America, Mali, Senegal, Nigeria, South Africa'],
+  ["Marburgo",70,'filoviridae','murcielago','Angola, Democratic Republic of the Congo, Uganda, Kenya, South Africa','El virus de Marburgo, un gran desconocido de la misma familia que el Ébola', 'FH', 'Germany, Republic of Serbia'],
+  ["Lassa", 10,'arenaviridae','rata','Guinea , Sierra Leon, Liberia, Mali, Ivory Coast, Ghana, Togo, Benin, Nigeria, Burkina Faso','¿#Sabíasque 1 de cada 5 infecciones de la fiebre del Lassa puede resultar en una enfermedad mortal?', 'FH', ''],
+  ["Congo-Crimea", 50,'bunyaviridae','vaca','Mauritania, Mali, Senegal, Guinea, Burkina Faso, Benin, Nigeria, Central African Republic, Democratic Republic of the Congo, South Sudan,Sudan, Egypt, Uganda, Tanzania, Zimbabwe, Namibia, South Africa, Madagascar, Ethiopia, Croatia, Slovenia, Serbia, Bosnia, Albania, Bulgaria, Macedonia, Turkey, Ukraine,Turkmenistan, Uzbekistan, Kazakhstan, Afghanistan, Pakistan, Georgia, Azerbaijan, Iraq, Iran, Saudi Arabia, United Arab Emirates, Oman','La Fiebre hemorrágica de Crimea Congo se transmite al ser humano a través de garrapatas y ganado', 'FH', ''],
+  ["Valle Rift", 10,'bunyaviridae','oveja','Namibia, South Africa, Zimbabwe, Mozambique, Zambia, Tanzania, Madagascar, Kenya, South Sudan, Sudan, Egypt, Mauritania, Senegal, Gambia, Saudi Arabia, Yemen','El virus del Valle de Rift afecta sobre todo a animales, pero también puede infectar a humanos', 'FH', ''],
+  ["MERS", 40,'Coronavirus','camello,murcielago','Iran, Jordan, Kuwait, Lebanon, Oman, Qatar, Saudi Arabia, United Arab Emirates, Yemen','El virus del MERS, una enfermedad emergente pero poco contagiosa fuera del contexto hospitalario', 'EAD', 'South Korea'],
+  ["SARS", 10,'Coronavirus','murcielago,gineta','China','En 2003 un brote de SARS infectó 8.000 personas y causó 800 muertes. No hay más casos documentados', 'EAD', 'Canada, Mongolia, Philippines, Vietnam', ''], //Falta Singapur
+  ["Nipah", 60,'Paramyxoviridae','murcielago','Malaysia, Bangladesh','El virus Nipah es leve en cerdos pero grave en humanos. Se reporta periódicamente en Bangladesh', 'E', ''], //Falta Singapur
+  ["Hendra", 0,'Paramyxoviridae','murcielago','Australia','¿#Sabíasque el virus Hendra sólo se ha registrado una vez? Fue el 1994 en Australia', 'E', ''] //Falta Singapur
 ];
 
 var general_tweet = 'Los patógenos más temidos. Revisa las 9 enfermedades que podrían causar la próxima pandemia';
@@ -74,14 +74,35 @@ function highlight(e){
       var bitxos = d[3].split(',').map(function(e){return '#'+e;}).join(',');
       d3.selectAll(bitxos).classed(m,true);
 
+      //Choose color
+      if (d[1]==0){
+        var color = '#2FAC66';
+      }else{
+        var color = d3.select(self).style("fill");  
+      }
+      //legend
+      d3.select('.tipo'+d[6]).style('fill',color);
+
       //Selecciono el mapa
       var c = d[4];
-      var color = d3.select(self).style("fill");
       c = c.split(",").map(function(d){return d.trim();});
-      d3.select('.tipo'+d[6]).style('fill',color);
       c.forEach(function(e){
         d3.select('path[data-admin="'+e+'"]').style("fill",color);
       });
+
+      //Seleccio de no locals
+      var c = d[7];
+      if (c.length>0){
+        var pattern = "url(#"+d[6]+"pattern)";
+        d3.select('#localtrans').style("visibility", "visible");
+        d3.select('#localtrans').select("rect").style("fill", pattern);
+        c = c.split(",").map(function(d){return d.trim();});
+        c.forEach(function(e){
+          d3.select('path[data-admin="'+e+'"]').style("fill", pattern);
+        });              
+      }else{
+        d3.select('#localtrans').style("visibility", "hidden");
+      }
 
       //Canvio tweet text
       d3.select('.tweettxt').text(d[5]);
@@ -110,6 +131,7 @@ function highlight(e){
 }
 
 function remove_highlight(){
+  d3.select('#localtrans').style("visibility", "hidden")
   d3.selectAll('.percentatge').remove();
   d3.selectAll('.bar').classed('highlight',false);
   d3.selectAll('.label').classed('highlight',false);
