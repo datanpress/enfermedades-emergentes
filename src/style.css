@@ -57,6 +57,9 @@ svg .regular{
 .label.highlight.Hendra{
 	fill:#2FAC66
 }
+.bar.highlight.Hendra{
+	stroke: #2FAC66;
+}
 
 #murcielago.Ebola,
 #murcielago.Marburgo,
@@ -85,7 +88,7 @@ reserv_ovella*/
 .map{
 	stroke-linejoin: round;
 	stroke: #555;
-	fill: #DADADA;
+	fill: #E6E6E6;
 }
 .crisp{
 	shape-rendering: crispEdges;
