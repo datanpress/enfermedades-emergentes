@@ -33,6 +33,7 @@ d3.select('svg').on('click',function(){
 });
 d3.selectAll('.tweetLink').on('click',function(){
   d3.event.stopPropagation();
+  ga('send', 'event', 'Click', 'tweetLink', d3.select(this).attr('xlink:href'));
 });
 d3.selectAll('.bar').on('click',function(){
   d3.event.stopPropagation();
@@ -42,6 +43,7 @@ d3.selectAll('.bar').on('click',function(){
     var m = d[0].replace(/ /g,'').replace(/-/g,'');
     if( d3.select(self).classed(m) ){
       clicked=m;
+      ga('send', 'event', 'Click', 'bar', m);
     }
   });
 });
@@ -67,6 +69,7 @@ function highlight(e){
       self= d3.select('.bar.'+m).node();
     }
     if( d3.select(self).classed(m) && (e===null || e===d[0].replace(/ /g,'').replace(/-/g,'') )){
+      ga('send', 'event', 'Hover', 'bar', m);
       d3.selectAll('.'+m).classed('highlight',true);
       var bitxos = d[3].split(',').map(function(e){return '#'+e;}).join(',');
       d3.selectAll(bitxos).classed(m,true);
@@ -91,7 +94,7 @@ function highlight(e){
       d3.select('.tweetLink').attr('xlink:href','https://twitter.com/share?url='+encodeURIComponent(url)+'&via='+encodeURIComponent(via)+'&text='+encodeURIComponent(d[5])+'');
       var percent = d[1]+'%';
       if (percent==='0%'){
-        percent = '?'
+        percent = '?';
       }
       d3.select('svg')
         .append('text')
