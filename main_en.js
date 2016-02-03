@@ -1,16 +1,16 @@
 var data = [
-  ["Ebola",70,'filoviridae','murcielago','Democratic Republic of the Congo, Guinea, Sierra Leon, Liberia, Uganda, South Sudan, Gabon','¿#Sabíasque el ébola sigue estando entre las 9 enfermedades emergentes más temidas?', 'FH', 'Spain, United States of America, Mali, Senegal, Nigeria, South Africa'],
-  ["Marburgo",70,'filoviridae','murcielago','Angola, Democratic Republic of the Congo, Uganda, Kenya, South Africa','El virus de Marburgo, un gran desconocido de la misma familia que el Ébola', 'FH', 'Germany, Republic of Serbia'],
-  ["Lassa", 1,'arenaviridae','rata','Guinea , Sierra Leon, Liberia, Mali, Ivory Coast, Ghana, Togo, Benin, Nigeria, Burkina Faso','¿#Sabíasque 1 de cada 5 infecciones por virus de Lassa puede resultar en una enfermedad grave?', 'FH', ''],
-  ["Congo-Crimea", 30,'bunyaviridae','vaca','Mauritania, Mali, Senegal, Guinea, Burkina Faso, Benin, Nigeria, Central African Republic, Democratic Republic of the Congo, South Sudan,Sudan, Egypt, Uganda, Tanzania, Zimbabwe, Namibia, South Africa, Madagascar, Ethiopia, Croatia, Slovenia, Serbia, Bosnia, Albania, Bulgaria, Macedonia, Turkey, Ukraine,Turkmenistan, Uzbekistan, Kazakhstan, Afghanistan, Pakistan, Georgia, Azerbaijan, Iraq, Iran, Saudi Arabia, United Arab Emirates, Oman','La Fiebre hemorrágica de Crimea Congo se transmite al ser humano a través de garrapatas y ganado', 'FH', ''],
-  ["Valle Rift", 1,'bunyaviridae','oveja','Namibia, South Africa, Zimbabwe, Mozambique, Zambia, Tanzania, Madagascar, Kenya, South Sudan, Sudan, Egypt, Mauritania, Senegal, Gambia, Saudi Arabia, Yemen','El virus del Valle de Rift afecta sobre todo a animales, pero también puede infectar a humanos', 'FH', ''],
-  ["MERS", 40,'Coronavirus','camello,murcielago','Iran, Jordan, Kuwait, Lebanon, Oman, Qatar, Saudi Arabia, United Arab Emirates, Yemen','El virus del MERS, una enfermedad emergente pero poco contagiosa fuera del contexto hospitalario', 'EAD', 'South Korea'],
-  ["SARS", 10,'Coronavirus','murcielago,gineta','China','En 2003 un brote de SARS infectó 8.000 personas y causó 800 muertes. No hay más casos documentados', 'EAD', 'Canada, Mongolia, Philippines, Vietnam', ''], //Falta Singapur
-  ["Nipah", 50,'Paramyxoviridae','murcielago','Malaysia, Bangladesh','El virus Nipah es leve en cerdos pero grave en humanos. Se reporta periódicamente en Bangladesh', 'E', ''], //Falta Singapur
-  ["Hendra", 0,'Paramyxoviridae','murcielago','Australia','La infección por Hendra en humanos solo se ha registrado una vez. Fue el 1994 en Australia', 'E', ''] //Falta Singapur
+  ["Ebola",70,'filoviridae','murcielago','Democratic Republic of the Congo, Guinea, Sierra Leon, Liberia, Uganda, South Sudan, Gabon','#DidYouKnow that Ebola is still among the 9 most feared emerging diseases?', 'FH', 'Spain, United States of America, Mali, Senegal, Nigeria, South Africa'],
+  ["Marburgo",70,'filoviridae','murcielago','Angola, Democratic Republic of the Congo, Uganda, Kenya, South Africa','Marburg is a largely unknown virus of the same family than Ebola', 'FH', 'Germany, Republic of Serbia'],
+  ["Lassa", 1,'arenaviridae','rata','Guinea , Sierra Leon, Liberia, Mali, Ivory Coast, Ghana, Togo, Benin, Nigeria, Burkina Faso','#DidYouKnow that 1 out of 5 infections with Lassa virus can lead to severe disease?', 'FH', ''],
+  ["Congo-Crimea", 30,'bunyaviridae','vaca','Mauritania, Mali, Senegal, Guinea, Burkina Faso, Benin, Nigeria, Central African Republic, Democratic Republic of the Congo, South Sudan,Sudan, Egypt, Uganda, Tanzania, Zimbabwe, Namibia, South Africa, Madagascar, Ethiopia, Croatia, Slovenia, Serbia, Bosnia, Albania, Bulgaria, Macedonia, Turkey, Ukraine,Turkmenistan, Uzbekistan, Kazakhstan, Afghanistan, Pakistan, Georgia, Azerbaijan, Iraq, Iran, Saudi Arabia, United Arab Emirates, Oman','Crimean-Congo haemorrhagic fever is transmitted to people through ticks and cattle', 'FH', ''],
+  ["Valle Rift", 1,'bunyaviridae','oveja','Namibia, South Africa, Zimbabwe, Mozambique, Zambia, Tanzania, Madagascar, Kenya, South Sudan, Sudan, Egypt, Mauritania, Senegal, Gambia, Saudi Arabia, Yemen','The Rift Valley virus mainly affects animals but can also infect humans', 'FH', ''],
+  ["MERS", 40,'Coronavirus','camello,murcielago','Iran, Jordan, Kuwait, Lebanon, Oman, Qatar, Saudi Arabia, United Arab Emirates, Yemen','MERS, an emergent disease, is poorly contagious outside hospital settings', 'EAD', 'South Korea'],
+  ["SARS", 10,'Coronavirus','murcielago,gineta','China','In 2003, a SARS outbreak infected 8,000 people and killed 800. No cases have been reported since', 'EAD', 'Canada, Mongolia, Philippines, Vietnam', ''], //Falta Singapur
+  ["Nipah", 50,'Paramyxoviridae','murcielago','Malaysia, Bangladesh','Nipah causes mild disease in pigs but severe in humans. It turns up periodically in Bangladesh', 'E', ''], //Falta Singapur
+  ["Hendra", 0,'Paramyxoviridae','murcielago','Australia','Hendra infections in humans have only been reported once. It was in 1994 in Australia', 'E', ''] //Falta Singapur
 ];
 
-var general_tweet = 'Los patógenos más temidos. 9 enfermedades que podrían causar una gran epidemia';
+var general_tweet = 'The most feared pathogens: 9 diseases that could cause a major epidemic';
 
 var url = "http://isglobal.org/";
 var via = "ISGLOBALorg";
