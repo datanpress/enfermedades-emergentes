@@ -1,15 +1,4 @@
 var data = [
-<<<<<<< HEAD
-  ["Ebola",70,'filoviridae','murcielago','Democratic Republic of the Congo, Guinea, Sierra Leon, Liberia, Uganda, South Sudan, Gabon','¿#Sabíasque el ébola sigue estando entre las 9 enfermedades emergentes más temidas?', 'FH', 'Spain, United States of America, Mali, Senegal, Nigeria, South Africa'],
-  ["Marburgo",70,'filoviridae','murcielago','Angola, Democratic Republic of the Congo, Uganda, Kenya, South Africa','El virus de Marburgo, un gran desconocido de la misma familia que el Ébola', 'FH', 'Germany, Republic of Serbia'],
-  ["Lassa", 1,'arenaviridae','rata','Guinea , Sierra Leon, Liberia, Mali, Ivory Coast, Ghana, Togo, Benin, Nigeria, Burkina Faso','¿#Sabíasque 1 de cada 5 infecciones por virus de Lassa puede resultar en una enfermedad grave?', 'FH', ''],
-  ["Congo-Crimea", 30,'bunyaviridae','vaca','Mauritania, Mali, Senegal, Guinea, Burkina Faso, Benin, Nigeria, Central African Republic, Democratic Republic of the Congo, South Sudan,Sudan, Egypt, Uganda, Tanzania, Zimbabwe, Namibia, South Africa, Madagascar, Ethiopia, Croatia, Slovenia, Serbia, Bosnia, Albania, Bulgaria, Macedonia, Turkey, Ukraine,Turkmenistan, Uzbekistan, Kazakhstan, Afghanistan, Pakistan, Georgia, Azerbaijan, Iraq, Iran, Saudi Arabia, United Arab Emirates, Oman','La Fiebre hemorrágica de Crimea Congo se transmite al ser humano a través de garrapatas y ganado', 'FH', ''],
-  ["Valle Rift", 1,'bunyaviridae','oveja','Namibia, South Africa, Zimbabwe, Mozambique, Zambia, Tanzania, Madagascar, Kenya, South Sudan, Sudan, Egypt, Mauritania, Senegal, Gambia, Saudi Arabia, Yemen','El virus del Valle de Rift afecta sobre todo a animales, pero también puede infectar a humanos', 'FH', ''],
-  ["MERS", 40,'Coronavirus','camello,murcielago','Iran, Jordan, Kuwait, Lebanon, Oman, Qatar, Saudi Arabia, United Arab Emirates, Yemen','El virus del MERS, una enfermedad emergente pero poco contagiosa fuera del contexto hospitalario', 'EAD', 'South Korea'],
-  ["SARS", 10,'Coronavirus','murcielago,gineta','China','En 2003 un brote de SARS infectó 8.000 personas y causó 800 muertes. No hay más casos documentados', 'EAD', 'Canada, Mongolia, Philippines, Vietnam', ''], //Falta Singapur
-  ["Nipah", 50,'Paramyxoviridae','murcielago','Malaysia, Bangladesh','El virus Nipah es leve en cerdos pero grave en humanos. Se reporta periódicamente en Bangladesh', 'E', ''], //Falta Singapur
-  ["Hendra", 0,'Paramyxoviridae','murcielago','Australia','La infección por Hendra en humanos solo se ha registrado una vez. Fue el 1994 en Australia', 'E', ''] //Falta Singapur
-=======
   ["Ebola",70,'filoviridae','murcielago','Democratic Republic of the Congo, Guinea, Sierra Leon, Liberia, Uganda, South Sudan, Gabon','¿#Sabíasque el Ébola es una de las 9 enfermedades que la OMS considera emergentes?', 'FH', 'Spain, United States of America, Mali, Senegal, Nigeria, South Africa'],
   ["Marburgo",70,'filoviridae','murcielago','Angola, Democratic Republic of the Congo, Uganda, Kenya, South Africa','El virus de Marburgo, un gran desconocido de la misma familia que el Ébola', 'FH', 'Germany, Republic of Serbia'],
   ["Lassa", 10,'arenaviridae','rata','Guinea , Sierra Leon, Liberia, Mali, Ivory Coast, Ghana, Togo, Benin, Nigeria, Burkina Faso','¿#Sabíasque 1 de cada 5 infecciones de la fiebre del Lassa puede resultar en una enfermedad mortal?', 'FH', ''],
@@ -19,10 +8,9 @@ var data = [
   ["SARS", 10,'Coronavirus','murcielago,gineta','China','En 2003 un brote de SARS infectó 8.000 personas y causó 800 muertes. No hay más casos documentados', 'EAD', 'Canada, Mongolia, Philippines, Vietnam', ''], //Falta Singapur
   ["Nipah", 60,'Paramyxoviridae','murcielago','Malaysia, Bangladesh','El virus Nipah es leve en cerdos pero grave en humanos. Se reporta periódicamente en Bangladesh', 'E', ''], //Falta Singapur
   ["Hendra", 0,'Paramyxoviridae','murcielago','Australia','¿#Sabíasque el virus Hendra sólo se ha registrado una vez? Fue el 1994 en Australia', 'E', ''] //Falta Singapur
->>>>>>> f0b1fb880ec77d0057afd02857073dd77357035b
 ];
 
-var general_tweet = 'Los patógenos más temidos. 9 enfermedades que podrían causar una gran epidemia';
+var general_tweet = 'Los patógenos más temidos. Revisa las 9 enfermedades que podrían causar la próxima pandemia';
 
 var url = "http://isglobal.org/";
 var via = "ISGLOBALorg";
@@ -90,11 +78,7 @@ function highlight(e){
       if (d[1]==0){
         var color = '#2FAC66';
       }else{
-<<<<<<< HEAD
-        var color = d3.select(self).style("fill");
-=======
         var color = d3.select(self).style("fill");  
->>>>>>> f0b1fb880ec77d0057afd02857073dd77357035b
       }
       //legend
       d3.select('.tipo'+d[6]).style('fill',color);
@@ -115,11 +99,7 @@ function highlight(e){
         c = c.split(",").map(function(d){return d.trim();});
         c.forEach(function(e){
           d3.select('path[data-admin="'+e+'"]').style("fill", pattern);
-<<<<<<< HEAD
-        });
-=======
         });              
->>>>>>> f0b1fb880ec77d0057afd02857073dd77357035b
       }else{
         d3.select('#localtrans').style("visibility", "hidden");
       }
