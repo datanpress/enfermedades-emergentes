@@ -17,7 +17,7 @@ var via = "ISGLOBALorg";
 
 
 var clicked = '';
-d3.select('.tweettxt').text(general_tweet+ " " + url + " via @" + via);
+d3.select('.tweettxt').text(general_tweet+ " " + url.substring(0,24) + "... via @" + via);
 wrap(d3.select('.tweettxt'),225);
 // d3.select('.tweetLink').attr('xlink:href','https://twitter.com/share?text='+encodeURIComponent(general_tweet)+'&via='+via+'&url='+url );
 d3.select('.tweetLink').attr('xlink:href','https://twitter.com/share?url='+encodeURIComponent(url)+'&via='+encodeURIComponent(via)+'&text='+encodeURIComponent(general_tweet)+'');
@@ -31,11 +31,12 @@ d3.select('svg').on('click',function(){
   clicked ='';
   remove_highlight();
 });
+
 d3.selectAll('.tweetLink').on('click',function(){
   d3.event.stopPropagation();
   ga('send', 'event', 'Click', 'tweetLink', d3.select(this).attr('xlink:href'));
 });
-d3.selectAll('.bar').on('click',function(){
+d3.selectAll('.bar,.label.virus').on('click',function(){
   d3.event.stopPropagation();
   // console.log(this)
   var self= this;
@@ -105,7 +106,7 @@ function highlight(e){
       }
 
       //Canvio tweet text
-      d3.select('.tweettxt').text(d[5]+ " " + url + " via @" + via);
+      d3.select('.tweettxt').text(d[5]+ " " + url.substring(0,24) + "... via @" + via);
       wrap(d3.select('.tweettxt'),225);
       // d3.select('.tweetLink').attr('xlink:href','http://twitter.com/share?url=""&text='+d[5] );
       d3.select('.tweetLink').attr('xlink:href','https://twitter.com/share?url='+encodeURIComponent(url)+'&via='+encodeURIComponent(via)+'&text='+encodeURIComponent(d[5])+'');
@@ -147,7 +148,7 @@ function remove_highlight(){
     // console.log('Hi ha clicat:'+clicked)
     highlight(clicked);
   }else{
-    d3.select('.tweettxt').text(general_tweet+ " " + url + " via @" + via);
+    d3.select('.tweettxt').text(general_tweet+ " " + url.substring(0,24) + "... via @" + via);
     wrap(d3.select('.tweettxt'),225);
     // d3.select('.tweetLink').attr('xlink:href','http://twitter.com/share?text='+general_tweet );
     d3.select('.tweetLink').attr('xlink:href','https://twitter.com/share?url='+encodeURIComponent(url)+'&via='+encodeURIComponent(via)+'&text='+encodeURIComponent(general_tweet)+'');
