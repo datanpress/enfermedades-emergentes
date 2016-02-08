@@ -12,7 +12,7 @@ var data = [
 
 var general_tweet = 'Los patógenos más temidos. 9 enfermedades que podrían causar una gran epidemia';
 
-var url = "http://isglobal.org/";
+var url = "http://www.isglobal.org/es/healthisglobal/-/custom-blog-portlet/los-patogenos-mas-temidos-9-enfermedades-que-podrian-causar-una-gran-epidemia/";
 var via = "ISGLOBALorg";
 
 
