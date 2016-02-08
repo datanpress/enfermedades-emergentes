@@ -12,7 +12,7 @@ var data = [
 
 var general_tweet = 'The most feared pathogens: 9 diseases that could cause a major epidemic';
 
-var url = "http://isglobal.org/";
+var url = "http://www.isglobal.org/en/healthisglobal/-/custom-blog-portlet/los-patogenos-mas-temidos-9-enfermedades-que-podrian-causar-una-gran-epidemia/";
 var via = "ISGLOBALorg";
 
 
